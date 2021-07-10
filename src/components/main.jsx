@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import Save from './save/save';
 import Header from './header';
-import Footer from './footer';
 import Editor from './editor/editor'
 import { useHistory } from 'react-router-dom';
+import styles from './main.module.css'
 
 const Main = ({authService}) => {
   const history = useHistory();
@@ -21,11 +21,12 @@ const Main = ({authService}) => {
     return(
         <main> 
           <Header onlogOut={logout} />
-          <section>
-          <Editor />
+          <section className={styles.section}>
+            <article className={styles.editor}>
+            <Editor />
+            </article>
           <Save />
           </section>
-          <Footer />
         </main>
     )
 }

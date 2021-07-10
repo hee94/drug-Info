@@ -2,7 +2,7 @@ import React from 'react';
 
 const Save = (props) => {
     return(
-        <h1>달력</h1>
+        <h1>저장되는영역</h1>
     )
 }
 

@@ -1,6 +1,7 @@
 import  styles  from './join.module.css';
 import React, { useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import Header  from '../header';
 
 const Join = ({authService}) => {
     const history = useHistory();
@@ -50,19 +51,20 @@ const Join = ({authService}) => {
 
     return(
         <form className={styles.container} onSubmit={handleOnSubmit}>
-            <h1 className={styles.title}> Drug Info</h1>
+            {/* <h1 className={styles.title}> Drug Info</h1> */}
+            <Header />
             <p className={styles.subtitle}>정보를 입력해주세요</p>
             <span className={styles.box_email}>
                 <label >이메일
                 <input ref={idRef} type="email" name="email" 
-                placeholder="이메일을 입력하세요" 
+                placeholder="이메일을 입력하세요" className={styles.input}
                 onChange={handleOnChange}/></label>
                
             </span>
             <span className={styles.box_pw}>
                 <label>비밀번호
                 <input ref={pwRef} type="password" name="password" 
-                placeholder="6자리 이상"
+                placeholder="6자리 이상"className={styles.input}
                 onChange={handleOnChange}/>
                 </label>
                 

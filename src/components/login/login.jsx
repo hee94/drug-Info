@@ -1,5 +1,4 @@
 import Header from '../header'
-import Footer from '../footer'
 import { useHistory } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import styles from './login.module.css'
@@ -62,7 +61,7 @@ const Login = ({authService }) => {
     return(
         <div className={styles.loginBox}>
             <Header />
-            <p> Login</p>
+            <p className={styles.subtitle}> Login</p>
           <form className={styles.email_pw_box} onSubmit={EmailLogin}>
               <input type="text" className={styles.email} name="email"
               placeholder="이메일" onChange={handleOnChange} />
@@ -73,7 +72,7 @@ const Login = ({authService }) => {
           <button className={styles.loginbtn} onClick={onLogin}>Google</button>
             <button className={styles.loginbtn} onClick={onLogin}>Github</button>
             <button className={styles.loginbtn} onClick={onJoin}>join</button>
-            <Footer />
+  
         </div>
     )
 }
