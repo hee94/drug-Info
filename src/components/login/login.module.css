@@ -1,0 +1,46 @@
+body {
+  background-color: rgb(226, 225, 225);
+}
+.loginBox {
+  width: 300px;
+  height: 300px;
+  margin: 5rem auto 0 auto;
+  border-radius: 30px;
+  padding: 0.1rem 1rem;
+  background-color: rgb(104, 228, 191);
+  text-align: center;
+  color: #fff;
+}
+p {
+  margin: 0.5rem;
+}
+button,
+input {
+  border: none;
+  border-radius: 30px;
+  padding: 0.3rem;
+  margin-top: 0.3rem;
+  outline: none;
+}
+button {
+  background-color: rgb(177, 189, 177);
+  cursor: pointer;
+  transition: all 0.4s;
+  color: #fff;
+}
+button:hover {
+  background-color: #fff;
+  color: rgb(104, 228, 191);
+}
+.email_pw_box {
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem;
+}
+input::placeholder {
+  font-size: 0.7rem;
+  padding-left: 0.5rem;
+}
+.loginbtn {
+  padding: 0.4rem 1.9rem;
+}

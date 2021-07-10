@@ -1,0 +1,32 @@
+.container {
+  width: 280px;
+  height: 260px;
+  padding: 0 1rem;
+  margin: 6rem auto 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(104, 228, 191);
+}
+.title {
+  color: #fff;
+  font-size: 3rem;
+  margin-bottom: 1.2rem;
+}
+.subtitle {
+  font-size: 0.7rem;
+  margin: 0;
+}
+.btn {
+  margin-top: 1rem;
+}
+.box_pw label,
+.box_email label {
+  font-size: 0.8rem;
+}
+.box_pw input {
+  margin-left: 0.5rem;
+}
+.box_email input {
+  margin-left: 1.3rem;
+}

@@ -1,12 +1,13 @@
 import firebase from 'firebase';
 
 const firebaseConfig = {
-    apiKey: process.env.FIREBASE_APIKEY,
-    authDomain: process.env.FIREBASE_AUTHDOMAIN,
-    projectId: process.env.FIREBASE_PROJECTID,
-    databaseURL : process.env.FIREBASE_DATABASEURL,
-  
+    apiKey:process.env.REACT_APP_FIREBASE_APIKEY,
+    authDomain:process.env.REACT_APP_FIREBASE_AUTHDOMAIN,
+    projectId:process.env.REACT_APP_FIREBASE_PROJECTID,
+    databaseURL:process.env.REACT_APP_FIREBASE_DATABASEURL,
+    //process.env.REACT_APP_FIREBASE_APIKEY
   };
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+export default firebaseApp;
