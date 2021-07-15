@@ -7,18 +7,21 @@ import stlyes from './app.module.css';
 
 
 function App({authService, searchService}) {
-  const [list, setList] = useState([]);
-  const [info, setInfo] = useState([]);
+  const [list, setList] = useState(null);
+  const [info, setInfo] = useState(null);
 
   const onsearch = (query) =>{
     searchService.search(query)
     .then(data => data.body.items)
-    .then(item =>{
-      if(item.length === 1){setInfo([item])}
-       else{setList([item])}
+    .then(item =>{ console.log(item)
+      if(item.length === 1){setInfo(item)}
+       else{setList(item)}
     })
-    .catch(err => alert('이름을 정확히 입력해주세요'))
+    .catch(err => alert('약이름을 정확히 입력해주세요'))
   }
+  
+  // console.log(info, list)   console.log(item[1].itemName)
+
   return (
     <div className={stlyes.app}>
     <BrowserRouter>

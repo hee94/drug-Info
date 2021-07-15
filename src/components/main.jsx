@@ -5,7 +5,7 @@ import Editor from './editor/editor'
 import { useHistory } from 'react-router-dom';
 import styles from './main.module.css'
 
-const Main = ({authService, onsearch, druginfo}) => {
+const Main = ({authService, onsearch, druginfo, drugList}) => {
   const history = useHistory();
   const logout = () =>{
     authService.onlogOut()
@@ -19,15 +19,13 @@ const Main = ({authService, onsearch, druginfo}) => {
 });
 const handleSearch =(query)=>{
   onsearch(query)
- 
 }
     return(
         <main> 
           <Header onlogOut={logout} />
           <section className={styles.section}>
             <article className={styles.editor}>
-            <Editor handleSearch={handleSearch} />
-           
+            <Editor handleSearch={handleSearch} drugList={drugList} druginfo={druginfo} />
             </article>
             <Save />
           </section>
