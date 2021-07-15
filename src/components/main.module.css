@@ -6,7 +6,7 @@ main {
   height: 100%;
 }
 .editor {
-  width: 65%;
+  width: 50%;
   height: 100%;
   border-right: 2px dotted rgb(122, 126, 125);
   margin-right: 1rem;
