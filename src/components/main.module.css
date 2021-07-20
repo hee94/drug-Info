@@ -7,11 +7,9 @@ main {
 }
 .editor {
   width: 70%;
-  height: 100%;
-  border-right: 2px dotted rgb(122, 126, 125);
+  height: auto;
 }
 .save {
   width: 30%;
-  height: 100%;
-  background-color: azure;
+  height: auto;
 }

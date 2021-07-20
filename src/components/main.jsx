@@ -24,7 +24,11 @@ const handleSearch =(query)=>{
 const onsave = (eat, time, text)=>{
   druginfo && setCard([...card, {eatchk:eat, timechk:time, id:Date(), name:druginfo[0].itemName, use:druginfo[0].efcyQesitm,  memo : text}]);
 }
+const ondelete =(id)=>{
+const del = [...card];
+setCard(del.filter(el => el.id !== id))
 
+}
     return(
         <main> 
           <Header onlogOut={logout} />
@@ -35,7 +39,7 @@ const onsave = (eat, time, text)=>{
             updateInfo={updateInfo} onsave={onsave} />
             </article>
             <article className={styles.save}>
-            <Save update={card}/>
+            <Save update={card} ondelete={ondelete}/>
             </article>
             
           </section>

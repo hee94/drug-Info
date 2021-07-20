@@ -23,3 +23,16 @@
   text-align: center;
   margin-top: 1rem;
 }
+.delbtn {
+  width: 20%;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.4s;
+  color: #333;
+  border: none;
+  border-radius: 30px;
+  padding: 0 0.5rem;
+  outline: none;
+  font-size: 0.8rem;
+  font-weight: 900;
+}
