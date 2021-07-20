@@ -1,0 +1,10 @@
+.infobox {
+  display: flex;
+  width: 95%;
+  margin: 1rem auto 0 auto;
+  list-style: none;
+  flex-wrap: wrap;
+  background-color: ghostwhite;
+  border-radius: 30px;
+  padding: 1rem;
+}

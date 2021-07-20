@@ -1,12 +1,13 @@
-import React, { useEffect} from 'react';
+import React, { useEffect, useState} from 'react';
 import Save from './save/save';
 import Header from './header';
 import Editor from './editor/editor'
 import { useHistory } from 'react-router-dom';
 import styles from './main.module.css'
 
-const Main = ({authService, onsearch, druginfo, drugList}) => {
+const Main = ({authService, onsearch, druginfo, drugList, updateInfo}) => {
   const history = useHistory();
+  const [card, setCard] =useState([]);
   const logout = () =>{
     authService.onlogOut()
    }
@@ -20,14 +21,23 @@ const Main = ({authService, onsearch, druginfo, drugList}) => {
 const handleSearch =(query)=>{
   onsearch(query)
 }
+const onsave = (eat, time, text)=>{
+  druginfo && setCard([...card, {eatchk:eat, timechk:time, id:Date(), name:druginfo[0].itemName, use:druginfo[0].efcyQesitm,  memo : text}]);
+}
+
     return(
         <main> 
           <Header onlogOut={logout} />
           <section className={styles.section}>
             <article className={styles.editor}>
-            <Editor handleSearch={handleSearch} drugList={drugList} druginfo={druginfo} />
+            <Editor handleSearch={handleSearch} 
+            drugList={drugList} druginfo={druginfo}
+            updateInfo={updateInfo} onsave={onsave} />
             </article>
-            <Save />
+            <article className={styles.save}>
+            <Save update={card}/>
+            </article>
+            
           </section>
         </main>
     )

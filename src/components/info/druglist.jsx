@@ -1,7 +1,15 @@
 import React from 'react';
-
-const DrugList = (props) => (
-       <h1>리스트</h1>     
-    );
-
-export default DrugList;<h1>리스트</h1>
+import styles from './druglist.module.css';
+import ItemList from './itemlist';
+const DrugList = ({list , updateInfo}) =>{
+    
+    list&&console.log(list)
+    return(
+        <ul className={styles.list}>
+            {list.map(item => (
+    <ItemList key={list.id} item={item} onupdateInfo={updateInfo}/>
+    ))}
+        </ul>
+    )
+};
+export default DrugList;

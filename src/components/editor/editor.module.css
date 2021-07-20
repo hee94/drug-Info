@@ -1,15 +1,16 @@
 .menu {
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 .drugCard {
   position: relative;
-  width: 55%;
-  margin: 3rem auto 0 auto;
+  width: 65%;
+  margin: 1.5rem auto 1rem auto;
   border: 3px dotted #fff;
   border-radius: 50px;
-  padding: 2% 0 3% 8%;
-  background-color: rgba(104, 228, 191, 0.5);
+  padding: 5%;
+  text-align: center;
+  background-color: rgb(104, 228, 191);
 }
 .searchBox {
   width: 70%;
@@ -43,24 +44,17 @@
 }
 .drugName {
   font-size: 1.3rem;
-  color: rgb(36, 36, 36);
-  margin: 0;
+  color: #fff;
+  text-shadow: -1px 0 #333, 0 1px #333, 1px 0 #333, 0 -1px #333;
+  margin: 0 auto;
+  width: 80%;
 }
 .drugcompany {
   display: block;
-  color: rgb(36, 36, 36);
-  font-size: 0.8rem;
+  color: #333;
+  font-size: 0.9rem;
   margin: 0.5rem 0 1.5rem 0.3rem;
-}
-.drugTime,
-.drugeat {
-  display: flex;
-  width: 80%;
-  justify-content: space-between;
-  color: #fff;
-  font-size: 1.15rem;
-  font-weight: bold;
-  margin-bottom: 4%;
+  font-weight: 800;
 }
 .text {
   width: 80%;
@@ -68,20 +62,28 @@
   border: none;
   border-radius: 10px;
 }
-/* .eatchk,
-.timechk {
-  display: none;
-} */
 .submitbtn {
   display: block;
   position: absolute;
   right: 17%;
   bottom: 3%;
   padding: 0.3rem 1rem;
-  background-color: rgb(104, 228, 191);
+  background-color: rgb(250, 250, 250);
   cursor: pointer;
   transition: all 0.4s;
-  color: #fff;
   border: none;
   outline: none;
+  border-radius: 20px;
+}
+label {
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  text-shadow: -1px 0 #333, 0 1px #333, 1px 0 #333, 0 -1px #333;
+}
+.warning {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 0.65rem;
 }

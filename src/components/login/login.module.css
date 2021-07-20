@@ -44,11 +44,13 @@ input::placeholder {
   padding: 0.7rem 1rem;
   margin-top: 0.7rem;
   outline: none;
+  font-weight: bold;
 }
 .email,
 .pw {
   background-color: #fff;
   color: #333;
+  font-weight: normal;
 }
 .loginbtn {
   width: 40%;

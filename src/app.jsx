@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './components/login/login';
 import Join from './components/join/join';
@@ -6,40 +6,49 @@ import Main from './components/main';
 import stlyes from './app.module.css';
 
 
-function App({authService, searchService}) {
+function App({ authService, searchService }) {
   const [list, setList] = useState(null);
   const [info, setInfo] = useState(null);
 
-  const onsearch = (query) =>{
+  const onsearch = (query) => {
     searchService.search(query)
-    .then(data => data.body.items)
-    .then(item =>{ console.log(item)
-      if(item.length === 1){setInfo(item)}
-       else{setList(item)}
-    })
-    .catch(err => alert('약이름을 정확히 입력해주세요'))
+      .then(data => data.body.items)
+      .then(item => {
+        if (item.length === 1) { 
+          setInfo(item) 
+          setList('')
+        }
+        else { 
+          console.log(item)
+          setList(item) 
+          setInfo('')
+        }
+      })
+      .catch(err => alert('약이름을 정확히 입력해주세요'))
   }
-  
-  // console.log(info, list)   console.log(item[1].itemName)
-
+  const updateInfo =(clickitem)=>{
+    console.log(clickitem)
+    setInfo([clickitem]);
+    setList('');
+  }
   return (
     <div className={stlyes.app}>
-    <BrowserRouter>
-    <Switch>
-      <Route exact path="/">
-      <Login authService={authService} />
-      </Route>
-      <Route path="/main">
-        <Main authService={authService} onsearch={onsearch}
-         druginfo={info} drugList={list} />
-      </Route>
-      <Route path="/join">
-        <Join  authService={authService}/>
-      </Route>
-    </Switch>
-   </BrowserRouter>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <Login authService={authService} />
+          </Route>
+          <Route path="/main">
+            <Main authService={authService} onsearch={onsearch}
+              druginfo={info} drugList={list} updateInfo={updateInfo} />
+          </Route>
+          <Route path="/join">
+            <Join authService={authService} />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
-    
+
 
   );
 }

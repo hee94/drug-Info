@@ -1,8 +1,15 @@
 import React from 'react';
-
-const Save = (props) => {
+import SaveList from './savelist';
+import styles from './save.module.css'
+const Save = ({update}) => {
+    console.log(update)
     return(
-        <h1>저장되는영역</h1>
+        <ul className={styles.ul}>
+            {update && 
+            update.map(list =>(<SaveList key={list.id} savelist={list} />))
+            }
+        </ul>
+        
     )
 }
 

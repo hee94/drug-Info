@@ -10,6 +10,7 @@ header {
   margin: 0;
   color: #fff;
   font-size: 3rem;
+  text-shadow: -1px 0 #333, 0 1px #333, 1px 0 #333, 0 -1px #333;
 }
 .logoutBtn {
   position: absolute;
@@ -23,4 +24,5 @@ header {
   transition: all 0.5s;
   padding: 0 1rem;
   border-radius: 30px;
+  text-shadow: -1px 0 #333, 0 1px #333, 1px 0 #333, 0 -1px #333;
 }
