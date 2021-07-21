@@ -39,7 +39,7 @@ const Editor = ({handleSearch,drugList,druginfo, updateInfo, onsave}) => {
     const updateSave =(e)=>{
         e.preventDefault();
         const text = areaRef.current.value;
-        const infoCard = {eat:eatchk, time:checkedInput, id:Date(), drugname:druginfo[0].itemName, use:druginfo[0].efcyQesitm,  memo : text}
+        const infoCard = {eat:eatchk, time:checkedInput, id:Date.now(), drugname:druginfo[0].itemName, use:druginfo[0].efcyQesitm,  memo : text}
         onsave(infoCard)
         checkformRef.current.reset();
         setCheckedInput([]);
