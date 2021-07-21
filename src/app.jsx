@@ -6,7 +6,7 @@ import Main from './components/main';
 import stlyes from './app.module.css';
 
 
-function App({ authService, searchService }) {
+function App({ authService, searchService, repository }) {
   const [list, setList] = useState(null);
   const [info, setInfo] = useState(null);
 
@@ -40,7 +40,8 @@ function App({ authService, searchService }) {
           </Route>
           <Route path="/main">
             <Main authService={authService} onsearch={onsearch}
-              druginfo={info} drugList={list} updateInfo={updateInfo} />
+              druginfo={info} drugList={list} updateInfo={updateInfo}
+              repository={repository} />
           </Route>
           <Route path="/join">
             <Join authService={authService} />

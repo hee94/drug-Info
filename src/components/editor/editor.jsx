@@ -26,20 +26,21 @@ const Editor = ({handleSearch,drugList,druginfo, updateInfo, onsave}) => {
               } else {
                 setCheckedInput(checkedInput.filter((item) => item !== id));
               }
-        }else{console.log('인포없음')}
+        }else{setCheckedInput([])}
     }
     const CheckedRadio  = (check)=>{
         if(druginfo){
             setEatchk(check)
         }else {
-            console.log('없음')
+            setEatchk('');
         }
       
     }
     const updateSave =(e)=>{
         e.preventDefault();
         const text = areaRef.current.value;
-        onsave(eatchk,checkedInput, text)
+        const infoCard = {eat:eatchk, time:checkedInput, id:Date(), drugname:druginfo[0].itemName, use:druginfo[0].efcyQesitm,  memo : text}
+        onsave(infoCard)
         checkformRef.current.reset();
         setCheckedInput([]);
         setEatchk('');

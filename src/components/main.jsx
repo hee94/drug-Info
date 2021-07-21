@@ -5,29 +5,49 @@ import Editor from './editor/editor'
 import { useHistory } from 'react-router-dom';
 import styles from './main.module.css'
 
-const Main = ({authService, onsearch, druginfo, drugList, updateInfo}) => {
+const Main = ({authService,repository, onsearch, druginfo, drugList, updateInfo}) => {
   const history = useHistory();
+  const historyState = history?.location?.state;
   const [card, setCard] =useState([]);
+  const [userId, setUserId] =useState(historyState && historyState.id);
   const logout = () =>{
     authService.onlogOut()
    }
    useEffect(() => { 
     authService.onAuthChange(user => {
-        if (!user) {
+        if (user) {
+          setUserId(user.uid);
+        }else{
           history.push('/')
         }
     })
 });
+useEffect(()=>{
+  if(!userId){
+      return;
+  }
+  const stopSycn = repository.syncCards(userId, info=>{
+    let result= Object.keys(info).map(function (key) { 
+      return info[key]; 
+  }); 
+  setCard(result);
+      
+  })
+  return () => {stopSycn();}
+},[userId]);
+
 const handleSearch =(query)=>{
   onsearch(query)
 }
-const onsave = (eat, time, text)=>{
-  druginfo && setCard([...card, {eatchk:eat, timechk:time, id:Date(), name:druginfo[0].itemName, use:druginfo[0].efcyQesitm,  memo : text}]);
+const onsave = (infoCard)=>{
+  druginfo && setCard([...card, infoCard]);
+  console.log(infoCard)
+   repository.saveInfoCard(userId, infoCard)
 }
 const ondelete =(id)=>{
 const del = [...card];
-setCard(del.filter(el => el.id !== id))
-
+setCard(del.filter(el => el.id !== id));
+repository.removeInfoCard(userId, id)
 }
     return(
         <main> 
