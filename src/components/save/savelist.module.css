@@ -9,6 +9,10 @@
   text-align: center;
   color: #333;
 }
+.name {
+  color: #fff;
+  text-shadow: -1px 0 #333, 0 1px #333, 1px 0 #333, 0 -1px #333;
+}
 .eat,
 .time {
   color: #fff;
@@ -19,9 +23,11 @@
 }
 .memo {
   display: block;
-  font-size: 1rem;
   text-align: center;
-  margin-top: 1rem;
+  margin: 0.6rem 0;
+  border-bottom: 3px dotted #fff;
+  color: rgb(255, 255, 255);
+  padding-bottom: 0.5rem;
 }
 .delbtn {
   width: 20%;
@@ -31,7 +37,7 @@
   color: #333;
   border: none;
   border-radius: 30px;
-  padding: 0 0.5rem;
+  padding: 0.2rem 0.5rem;
   outline: none;
   font-size: 0.8rem;
   font-weight: 900;
