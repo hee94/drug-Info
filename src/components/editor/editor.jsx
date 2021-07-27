@@ -12,11 +12,11 @@ const Editor = ({handleSearch,drugList,druginfo, updateInfo, onsave}) => {
     const checkformRef = useRef();
     const [checkedInput, setCheckedInput] = useState([]);
     const [eatchk, setEatchk] = useState('');
-
+    console.log('editor')
     const onsubmit =(e)=>{
         e.preventDefault();
         let drugName = searchRef.current.value;
-        handleSearch(drugName);
+        drugName && handleSearch(drugName);
         searchformRef.current.reset();
     }
     const CheckedBox =(checked, id)=>{
@@ -34,13 +34,16 @@ const Editor = ({handleSearch,drugList,druginfo, updateInfo, onsave}) => {
         }else {
             setEatchk('');
         }
-      
     }
     const updateSave =(e)=>{
         e.preventDefault();
         const text = areaRef.current.value;
-        const infoCard = {eat:eatchk, time:checkedInput, id:Date.now(), drugname:druginfo[0].itemName, use:druginfo[0].efcyQesitm,  memo : text}
-        onsave(infoCard)
+        if( druginfo ){
+            const infoCard = {eat:eatchk, time:checkedInput, id:Date.now(), drugname:druginfo[0].itemName, use:druginfo[0].efcyQesitm,  memo : text}
+       onsave(infoCard)
+        }else {
+            alert('약을 검색해주세요')
+        }
         checkformRef.current.reset();
         setCheckedInput([]);
         setEatchk('');

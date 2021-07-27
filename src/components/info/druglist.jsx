@@ -2,8 +2,7 @@ import React from 'react';
 import styles from './druglist.module.css';
 import ItemList from './itemlist';
 const DrugList = ({list , updateInfo}) =>{
-    
-    list&&console.log(list)
+    console.log('list')
     return(
         <ul className={styles.list}>
             {list.map(item => (

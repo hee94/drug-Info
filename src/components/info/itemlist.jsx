@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './item.module.css'
 
 const ItemList = ({item, onupdateInfo }) => {
-    item&&console.log(item)
+ 
     const updateInfo =()=>{
         onupdateInfo(item)
     }

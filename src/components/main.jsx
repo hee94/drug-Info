@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React, { useCallback, useEffect, useState} from 'react';
 import Save from './save/save';
 import Header from './header';
 import Editor from './editor/editor'
@@ -10,10 +10,13 @@ const Main = ({authService,repository, onsearch, druginfo, drugList, updateInfo}
   const historyState = history?.location?.state;
   const [card, setCard] =useState([]);
   const [userId, setUserId] =useState(historyState && historyState.id);
-  const logout = () =>{
+  
+  const logout = useCallback(() =>{
     authService.onlogOut()
-   }
-   useEffect(() => { 
+   },[authService])
+   console.log('main')
+  useEffect(() => { 
+    console.log('effect user')
     authService.onAuthChange(user => {
         if (user) {
           setUserId(user.uid);
@@ -21,8 +24,10 @@ const Main = ({authService,repository, onsearch, druginfo, drugList, updateInfo}
           history.push('/')
         }
     })
-});
+},[userId, authService, history]);
+
 useEffect(()=>{
+  console.log('effect save')
   if(!userId){
       return;
   }
@@ -34,7 +39,7 @@ useEffect(()=>{
       
   })
   return () => {stopSycn();}
-},[userId]);
+},[userId,repository]);
 
 const handleSearch =(query)=>{
   onsearch(query)

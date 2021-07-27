@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './header.module.css'
 
-const Header = ({onlogOut}) => {
-    
+const Header = memo(({onlogOut}) => {
+    console.log('header')
   return(
     <header>
     <h1 className={styles.title}>Drug Info</h1>
@@ -12,5 +12,5 @@ const Header = ({onlogOut}) => {
 </header>  
   )
 }
-
+)
 export default Header;
