@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './timecheckbox.module.css';
 
 const TimeCheckbox = ({CheckedBox}) => {
-   console.log('tiem')
     const onChecked =(e)=>{
         CheckedBox(e.currentTarget.checked,e.target.value)
     }

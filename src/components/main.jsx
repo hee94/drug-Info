@@ -5,18 +5,15 @@ import Editor from './editor/editor'
 import { useHistory } from 'react-router-dom';
 import styles from './main.module.css'
 
-const Main = ({authService,repository, onsearch, druginfo, drugList, updateInfo}) => {
+const Main = ({authService,repository,searchService }) => {
   const history = useHistory();
   const historyState = history?.location?.state;
   const [card, setCard] =useState([]);
   const [userId, setUserId] =useState(historyState && historyState.id);
-  
-  const logout = useCallback(() =>{
-    authService.onlogOut()
-   },[authService])
-   console.log('main')
+  const [list, setList] = useState(null);
+  const [info, setInfo] = useState(null);
+
   useEffect(() => { 
-    console.log('effect user')
     authService.onAuthChange(user => {
         if (user) {
           setUserId(user.uid);
@@ -24,29 +21,45 @@ const Main = ({authService,repository, onsearch, druginfo, drugList, updateInfo}
           history.push('/')
         }
     })
-},[userId, authService, history]);
+  },[userId, authService, history]);
+  useEffect(()=>{
+    if(!userId){
+        return;
+    }
+    const stopSycn = repository.syncCards(userId, info=>{
+      let result= Object.keys(info).map(function (key) { 
+        return info[key]; 
+    }); 
+    setCard(result);
+        
+    })
+    return () => {stopSycn();}
+  },[userId,repository]);
 
-useEffect(()=>{
-  console.log('effect save')
-  if(!userId){
-      return;
+  const handleSearch = (query) => {
+    searchService.search(query)
+      .then(data => data.body.items)
+      .then(item => {
+        if (item.length === 1) { 
+          setInfo(item) 
+          setList('')
+        }
+        else { 
+          setList(item) 
+          setInfo('')
+        }
+      })
+      .catch(err => alert('약이름을 정확히 입력해주세요'))
   }
-  const stopSycn = repository.syncCards(userId, info=>{
-    let result= Object.keys(info).map(function (key) { 
-      return info[key]; 
-  }); 
-  setCard(result);
-      
-  })
-  return () => {stopSycn();}
-},[userId,repository]);
-
-const handleSearch =(query)=>{
-  onsearch(query)
-}
+  const updateInfo =(clickitem)=>{
+    setInfo([clickitem]);
+    setList('');
+  }
+  const logout = useCallback(() =>{
+    authService.onlogOut()
+   },[authService]);
 const onsave = (infoCard)=>{
-  druginfo && setCard([...card, infoCard]);
-  console.log(infoCard)
+  info && setCard([...card, infoCard]);
    repository.saveInfoCard(userId, infoCard)
 }
 const ondelete =(id)=>{
@@ -60,7 +73,7 @@ repository.removeInfoCard(userId, id)
           <section className={styles.section}>
             <article className={styles.editor}>
             <Editor handleSearch={handleSearch} 
-            drugList={drugList} druginfo={druginfo}
+            drugList={list} druginfo={info}
             updateInfo={updateInfo} onsave={onsave} />
             </article>
             <article className={styles.save}>

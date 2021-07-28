@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './savelist.module.css'
 
 const SaveList = ({savelist,deleteClick}) => {
- console.log(savelist.time)
    const onclick =(e)=>{
        e.preventDefault();
        deleteClick(savelist.id)

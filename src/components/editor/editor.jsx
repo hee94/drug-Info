@@ -12,7 +12,7 @@ const Editor = ({handleSearch,drugList,druginfo, updateInfo, onsave}) => {
     const checkformRef = useRef();
     const [checkedInput, setCheckedInput] = useState([]);
     const [eatchk, setEatchk] = useState('');
-    console.log('editor')
+   
     const onsubmit =(e)=>{
         e.preventDefault();
         let drugName = searchRef.current.value;

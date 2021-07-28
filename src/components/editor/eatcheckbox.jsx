@@ -2,9 +2,7 @@ import React from 'react';
 import styles from './eatcheckbox.module.css';
 
 const EatCheckbox = ({CheckedRadio}) => {
-    console.log('eat')
     const onChecked =(e)=>{
-        // console.log(e.target.id)
         CheckedRadio(e.target.value)
     }
     return(
