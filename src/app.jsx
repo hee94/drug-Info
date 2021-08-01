@@ -17,8 +17,7 @@ function App({ authService, searchService, repository }) {
           </Route>
           <Route path="/main">
             <Main authService={authService} 
-            searchService ={searchService} repository={repository}
-              />
+            searchService ={searchService} repository={repository}/>
           </Route>
           <Route path="/join">
             <Join authService={authService} />

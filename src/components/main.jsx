@@ -58,15 +58,16 @@ const Main = ({authService,repository,searchService }) => {
   const logout = useCallback(() =>{
     authService.onlogOut()
    },[authService]);
-const onsave = (infoCard)=>{
-  info && setCard([...card, infoCard]);
-   repository.saveInfoCard(userId, infoCard)
-}
-const ondelete =(id)=>{
-const del = [...card];
-setCard(del.filter(el => el.id !== id));
-repository.removeInfoCard(userId, id)
-}
+
+  const onsave = (infoCard)=>{
+    info && setCard([...card, infoCard]);
+    repository.saveInfoCard(userId, infoCard)
+  }
+  const ondelete =(id)=>{
+  const del = [...card];
+  setCard(del.filter(el => el.id !== id));
+  repository.removeInfoCard(userId, id)
+  }
     return(
         <main> 
           <Header onlogOut={logout} />
@@ -79,7 +80,6 @@ repository.removeInfoCard(userId, id)
             <article className={styles.save}>
             <Save update={card} ondelete={ondelete}/>
             </article>
-            
           </section>
         </main>
     )

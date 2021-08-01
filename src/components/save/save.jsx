@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import SaveList from './savelist';
 import styles from './save.module.css'
-const Save = ({update,ondelete}) => {
+const Save = memo(({update,ondelete}) => {
+    
     const deleteClick =(id)=>{
         ondelete(id);
     }
@@ -13,6 +14,6 @@ const Save = ({update,ondelete}) => {
         </ul>
         
     )
-}
+})
 
 export default Save;
