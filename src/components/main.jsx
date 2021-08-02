@@ -49,7 +49,7 @@ const Main = ({authService,repository,searchService }) => {
           setInfo('')
         }
       })
-      .catch(err => alert('약이름을 정확히 입력해주세요'))
+      .catch(err => alert(`약이름을 정확히 입력해주세요 : ${err}`))
   }
   const updateInfo =(clickitem)=>{
     setInfo([clickitem]);
