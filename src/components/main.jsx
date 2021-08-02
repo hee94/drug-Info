@@ -38,7 +38,7 @@ const Main = ({authService,repository,searchService }) => {
 
   const handleSearch = (query) => {
     searchService.search(query)
-      .then(data => data.body.items)
+      .then(date => date.body.items)
       .then(item => {
         if (item.length === 1) { 
           setInfo(item) 
@@ -49,7 +49,7 @@ const Main = ({authService,repository,searchService }) => {
           setInfo('')
         }
       })
-      .catch(err => alert(`약이름을 정확히 입력해주세요 : ${err}`))
+      .catch(error => alert(`약이름을 정확히 입력해주세요 ${error}`))
   }
   const updateInfo =(clickitem)=>{
     setInfo([clickitem]);

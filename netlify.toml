@@ -5,7 +5,7 @@
 
 
 [[redirects]]
-  from = "/1471000/*"
+  from = "1471000/*"
   to = "http://apis.data.go.kr/:splat"
   status = 200
   force = true
