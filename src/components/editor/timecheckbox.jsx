@@ -4,6 +4,7 @@ import styles from './timecheckbox.module.css';
 const TimeCheckbox = ({CheckedBox}) => {
     const onChecked =(e)=>{
         CheckedBox(e.currentTarget.checked,e.target.value)
+        console.log(e.currentTarget.checked)
     }
    
     return(

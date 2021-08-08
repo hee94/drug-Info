@@ -4,9 +4,9 @@ class SearchDrug {
       this.getRequestOptions = {
         method: 'GET',
         redirect: 'follow',
-        // headers: {
-        //   'Content-Type': 'application/json; charset=UTF-8'
-        // }
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8',
+        }
       };
       
     }

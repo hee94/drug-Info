@@ -25,8 +25,6 @@ function App({ authService, searchService, repository }) {
         </Switch>
       </BrowserRouter>
     </div>
-
-
   );
 }
 
