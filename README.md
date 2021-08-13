@@ -1,5 +1,5 @@
 ## drug-infomation (약 정보 검색)
-  
+
   
   #### 개발환경💻  
    <img src="https://img.shields.io/badge/-Javascript-%23ec9d93?style=flat-square&logo=JavaScript&logoColor=white"/></a>
@@ -8,8 +8,9 @@
     <img src="https://img.shields.io/badge/-Firebase-%23c9f0b0?style=flat-square&logo=Firebase&logoColor=white"/></a>
     
   개발인원 ✋  : 1명
+  
   ### 프로젝트 소개 💬   
- <https://drug-info-b2789.web.app>{: target="_blank"} \
+  https://drug-info-b2789.web.app   
  _( id: test123@gmail.com  /  pw:1234567 )_
 ```
   로그인을 통해서 사용 가능한 프로젝트로, 구글과 깃허브, 아이디로 로그인이 가능하며 
