@@ -23,7 +23,8 @@ const Editor = ({handleSearch,drugList,druginfo, updateInfo, onsave}) => {
         if(druginfo){
             if (checked) {
                 setCheckedInput([...checkedInput,id]);
-              } else {
+              } 
+              else {
                 setCheckedInput(checkedInput.filter((item) => item !== id));
               }
         }else{setCheckedInput([])}
